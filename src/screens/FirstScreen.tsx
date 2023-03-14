@@ -10,7 +10,6 @@ const THEME_COLOR = '#285E29';
 enum ShapeType {
   Circle = 'circle',
   Square = 'square',
-  Triangle = 'triangle',
 }
 
 type TNavProp = NativeStackNavigationProp<RootStackParamList, 'FirstScreen'>
@@ -45,6 +44,11 @@ const FirstScreen: FC = () => {
             onPress={() => setCount(count - 1)}
             title='Decrement'
           />
+          <TouchableOpacity style={styles.customButton} onPress={() => {
+            navigation.navigate('SecondScreen', { message: 'yooooooo!' });
+          }}>
+            <Text style={{color: 'yellow', fontWeight: '700'}}>{"Navigate to Second Screen"}</Text>
+          </TouchableOpacity>
           <Image style={styles.image} source={{ uri: 'https://picsum.photos/500/700' }}/> 
           <View style={{flexDirection: 'row', marginBottom: 4}}>
             {renderShape(ShapeType.Circle)}
@@ -55,11 +59,6 @@ const FirstScreen: FC = () => {
             <Spacer />
             {renderShape(ShapeType.Square)}
           </View>
-          <TouchableOpacity style={styles.customButton} onPress={() => {
-            navigation.navigate('SecondScreen', { message: 'yooooooo!' });
-          }}>
-            <Text style={{color: 'white', fontWeight: '700'}}>{"Navigate to Second Screen"}</Text>
-          </TouchableOpacity>
       </View>
       </SafeAreaView>
     );
@@ -68,9 +67,9 @@ const FirstScreen: FC = () => {
 export default FirstScreen;
 
 const windowWidth = Dimensions.get('window').width;
-console.log(windowWidth);
+
 const windowHeight = Dimensions.get('window').height;
-console.log(windowHeight);
+
 
 const styles = StyleSheet.create({
   container: {
