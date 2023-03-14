@@ -12,4 +12,4 @@ Git:
 
 `git push` (pushes changes to the remote repository)
 
-`git pull` (grabs latest changes from remote repo) 
+`git pull` (grabs latest changes from remote repo)
